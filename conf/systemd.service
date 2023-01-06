@@ -7,7 +7,7 @@ Type=simple
 User=__APP__
 Group=__APP__
 WorkingDirectory=__FINALPATH__/
-ExecStart=__FINALPATH__/__APP__
+ExecStart=__FINALPATH__/answer
 
 # Sandboxing options to harden security
 # Depending on specificities of your service/app, you may need to tweak these
