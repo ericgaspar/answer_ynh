@@ -115,7 +115,7 @@ ynh_script_progression --message="Creating a data directory..." --weight=1
 datadir=/home/yunohost.app/$app
 ynh_app_setting_set --app=$app --key=datadir --value=$datadir
 
-mkdir -p $datadir/config
+mkdir -p $datadir/conf
 
 chmod 750 "$datadir"
 chmod -R o-rwx "$datadir"
@@ -126,9 +126,9 @@ chown -R $app:www-data "$datadir"
 #=================================================
 ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-ynh_add_config --template="../conf/config.yaml" --destination="$datadir/config.yaml"
+ynh_add_config --template="../conf/config.yaml" --destination="$datadir/conf/config.yaml"
 
-chmod 400 "$datadir/config.yaml"
+chmod 400 "$datadir/conf/config.yaml"
 chown $app:$app "$datadir/config.yaml"
 
 #=================================================
