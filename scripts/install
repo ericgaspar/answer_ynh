@@ -110,26 +110,27 @@ ynh_add_nginx_config
 #=================================================
 # CREATE DATA DIRECTORY
 #=================================================
-# ynh_script_progression --message="Creating a data directory..." --weight=1
+ynh_script_progression --message="Creating a data directory..." --weight=1
 
-# datadir=/home/yunohost.app/$app
-# ynh_app_setting_set --app=$app --key=datadir --value=$datadir
+datadir=/home/yunohost.app/$app
+ynh_app_setting_set --app=$app --key=datadir --value=$datadir
 
-# mkdir -p $datadir/conf
+mkdir -p $datadir
+mkdir -p $datadir/{conf,import,medium,raw,small,thumb}
 
-# chmod 750 "$datadir"
-# chmod -R o-rwx "$datadir"
-# chown -R $app:www-data "$datadir"
+chmod 750 "$datadir"
+chmod -R o-rwx "$datadir"
+chown -R $app:www-data "$datadir"
 
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-# ynh_script_progression --message="Adding a configuration file..." --weight=1
+ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-# ynh_add_config --template="../conf/config.yaml" --destination="$datadir/conf/config.yaml"
+ynh_add_config --template="../conf/config.yaml" --destination="$datadir/conf/config.yaml"
 
-# chmod 400 "$datadir/conf/config.yaml"
-# chown $app:$app "$datadir/config.yaml"
+chmod 400 "$datadir/conf/config.yaml"
+chown $app:$app "$datadir/config.yaml"
 
 #=================================================
 # SETUP SYSTEMD
