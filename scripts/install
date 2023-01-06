@@ -116,7 +116,7 @@ datadir=/home/yunohost.app/$app
 ynh_app_setting_set --app=$app --key=datadir --value=$datadir
 
 mkdir -p $datadir
-mkdir -p $datadir/{conf,import,medium,raw,small,thumb}
+mkdir -p $datadir/{conf,i18n,cache,uploads}
 
 chmod 750 "$datadir"
 chmod -R o-rwx "$datadir"
